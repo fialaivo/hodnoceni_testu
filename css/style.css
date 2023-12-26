@@ -1,0 +1,219 @@
+/* chakra-petch-regular - latin_latin-ext */
+@font-face {
+	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: 'Chakra Petch';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../fonts/chakra-petch-v11-latin_latin-ext-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+html{
+	font-family: Arial;
+	font-size: 20px;
+}
+
+form{
+	display: flex;
+    flex-direction: column; 
+	justify-content: center;
+}
+
+input{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 20px;
+}
+
+.tlacitka{
+	display: flex;
+	justify-content: center;
+}
+
+.celkovyPocetBodu{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center
+}
+
+.procentniHranice{
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	align-items: center;
+}
+
+.prihlaseni{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(247, 243, 243);
+	height: 50px;
+	width: 100%;
+}
+
+.prihlaseniContainer{
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	width: 1000px;
+}
+
+.loginError{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+img#error{
+	width: 20px;
+}
+
+button{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	font-size: 20px;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 5px;
+	background-color:#0d6efd;
+	color: white;
+	border: none;
+}
+
+button:hover{
+	cursor: pointer;
+	background-color: #0a53be;
+}
+
+header{
+	/*background-image: url(../img/header.jpg);*/
+	height: 400px;
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+footer{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+	background-color: rgb(247, 243, 243);
+}
+
+section{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+h1{
+	color: #0d6efd;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 100px;
+	text-shadow:  1px -2px 20px rgb(13 110 253);
+	text-decoration-skip-ink: inherit;
+}
+
+.nadpis{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+
+section{
+	display: flex;
+	justify-content: center;
+}
+.container{
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	/*background-color: rgb(110, 61, 201);*/
+	width: 1000px;
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
+.vyhodnoceni{
+	margin: 20px;
+}
+
+.prihlasovaciFormular{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.inputUser{
+	width: 100px;
+}
+
+#trida
+{
+	width: 50px;
+}
+
+#nazevTestu
+{
+	width: 400px;
+}
+
+.odhlasit
+{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+th, td{
+	padding: 10px;
+	text-align: center;
+	border-bottom: 1px solid #bfabab;
+
+}
+
+td.odkaz{
+	padding: 0px;
+}
+
+th{
+	font-weight: bold;
+	background-color:rgb(247, 243, 243);;
+}
+
+a{
+	color: #0d6efd;
+}
+
+a:hover{
+	color: #0a53be;
+	font-size:larger;
+	transition: 0.5s;
+}
+
+#registrace{
+	font-size: 20px;
+	border-radius: 5px;
+	padding: 7px;
+	margin: 5px;
+	background-color:#0d6efd;
+	color: white;
+	border: none;
+	text-decoration: none;
+	transition: 0s;
+}
+
+#registrace:hover{
+	background-color: #0a53be;
+}

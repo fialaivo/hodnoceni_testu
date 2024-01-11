@@ -47,12 +47,21 @@
 
 	function checkUser($jmeno, $heslo){
 		global $db;
-
 		$dotaz = $db -> prepare("SELECT * FROM seznam_uzivatelu where login = ? and password = ? and confirm = ?");
 		$dotaz -> execute([$jmeno, $heslo, 1]);
 		$vysledek = $dotaz -> fetch();
 		if ($vysledek != null){
 			return $jmeno;
+		}
+	}
+
+	function checkExistUser($login, $email){
+		global $db;
+		$dotaz = $db -> prepare("SELECT * FROM seznam_uzivatelu where login = ? or email = ? ");
+		$dotaz -> execute([$login, $email]);
+		$vysledek = $dotaz ->fetchAll();
+		if ($vysledek != null){
+			return $vysledek;
 		}
 	}
 

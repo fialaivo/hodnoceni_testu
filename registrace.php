@@ -20,6 +20,12 @@ if (array_key_exists("zaregistrovat", $_POST)) {  //uživatel vyplnil registrač
 	if (!$okMail){
 		 $chyby[] = "Email nebyl zadán ve správném formátu"; 
 	}
+
+	$checkExistUser = checkExistUser($login, $email); //kontrola, zda není uživatel již zaregistrovaný (dopracovat - podrobnější výpis pro uživatele - zda se shoduje email nebo login)
+	if ($checkExistUser != null){
+		$chyby[] = "Uživatel s tímto loginem nebo emailem je již registrován";
+	}
+
 	if ((strlen($_POST["password"]) < 6 || strlen($_POST["controlPassword"]) < 6)){  //kontrola délky hesla - minimálně 6 znaků
 		$chyby[] = "Heslo musí být dlouhé minimálně šest znaků";
 	}
@@ -28,11 +34,11 @@ if (array_key_exists("zaregistrovat", $_POST)) {  //uživatel vyplnil registrač
 	}
 
 	$pin = random_int(1000, 9999);  //generování náhodného pinu
-	if (count($chyby) != 0) {
+	if (count($chyby) != 0) {		//pokud se v zadaných registračních údajích vyskytují chyby - ruším proměnnou $_POST["zaregistrovat"]
 		unset($_POST["zaregistrovat"]);
 	}
-	else{
-		ulozit_uzivatele($login, $password, $email, $pin);
+	else{							//pokud jsou zadané údaje v registračním formuláři v pořádku - ukládám uživatele do databáze a posílám mail s PINem na email
+		ulozit_uzivatele($login, $password, $email, $pin); 
 		send_mail($email, $pin);
 	}
 }

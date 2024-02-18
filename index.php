@@ -7,7 +7,8 @@ if (array_key_exists("odhlasit", $_GET)) {
 	header("Location: ?");
 }
 require "funkce.php";
-$chyba = null;
+$errorLogin = null;
+$errorInput = null;
 $nazevTestu = null;
 $trida = null;
 $datum = null;
@@ -31,7 +32,7 @@ if (array_key_exists("prihlasit", $_POST)) {
 	//}
 	if ($_SESSION["prihlasenyUzivatel"]==null) {
 		unset($_SESSION["prihlasenyUzivatel"]);
-		$chyba = "Nesprávné přihlašovací údaje";
+		$errorLogin = "Nesprávné přihlašovací údaje";
 	}
 }
 
@@ -41,7 +42,7 @@ $bodoveIntervaly = [];
 $bodoveIntervalyFinal = [];
 $celkovyPocetBodu = null;
 $procentniHranice = null;
-$opakuj = true;
+$opakuj = true;   
 if (array_key_exists("smazat", $_GET)) {
 	smazat($_GET["id"]);
 }
@@ -55,9 +56,9 @@ if (array_key_exists("zobraz_historie", $_GET)) {
 
 }
 if (array_key_exists("zobraz", $_GET)) {
-	//var_dump($_GET);
+	var_dump($_GET);
 	if (empty($_GET["celkovyPocetBodu"]) || empty($_GET["procentniHranice"])) {
-		$chyba = "Nesprávné zadání vstupních údajů";
+		$errorInput = "Není zadán celkový počet bodů nebo procentní hranice";
 	} else {
 		if (array_key_exists("prihlasenyUzivatel", $_SESSION) == true) {
 			$nazevTestu = $_GET["nazevTestu"];
@@ -185,9 +186,13 @@ function zaokrouhlitDoluNaPul($cislo)
 				<div class="loginError">
 				
 					<?php
-						if (array_key_exists("prihlasit", $_POST) && ($chyba != null))
+						if (array_key_exists("prihlasit", $_POST) && ($errorLogin != null))
 							{
-								echo "<div><img id='error' src='img/error_icon.png'> $chyba</div>";
+								echo "<div><img id='error' src='img/error_icon.png'> $errorLogin</div>";
+							}
+						else if (array_key_exists("zobraz", $_GET) && ($errorInput != null))
+							{
+								echo "<div><img id='error' src='img/error_icon.png'> $errorInput</div>";
 							}
 					?>
 				</div>	

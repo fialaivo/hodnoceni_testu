@@ -217,3 +217,59 @@ a:hover{
 #registrace:hover{
 	background-color: #0a53be;
 }
+
+.prihlasitRegistrace{
+	display: flex;
+	flex-direction: row;
+}
+
+.jmenoHeslo{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+@media(max-width:700px)
+{
+	.nadpis{
+		flex-direction: column;
+	}
+	.nadpis h1{
+		font-size: 8vw;
+	}
+	.nadpis img{
+		width: 25vw;
+		height: 25vw;
+	}
+	.container{
+		width: 80vw;
+	}
+	.prihlaseniContainer{
+		width: 80vw;
+	}
+	.prihlaseni{
+		width: 80vw;
+		height: 120px;
+	}
+	.prihlasovaciFormular{
+		flex-direction: column;
+	}
+}
+@media(max-width:480px){
+	.prihlaseni{
+		width: 80vw;
+		height: 250px;
+	}
+	.prihlaseniContainer{
+		justify-content: center;
+	}
+	.jmenoHeslo{
+		flex-direction: column;
+	}
+	.prihlasitRegistrace{
+		flex-direction: column;
+	}
+	.inputUser{
+		margin: 0px;
+	}
+}

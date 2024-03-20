@@ -146,12 +146,16 @@ function zaokrouhlitDoluNaPul($cislo)
 						//sekce pro nepřihlášené uživatele
 						?>
 						<form action="" class="prihlasovaciFormular" method="post">
-							<label for="jmeno">Jméno:&nbsp; </label>
-							<input type="text" class="inputUser" id="jmeno" name="jmeno">
-							&nbsp;&nbsp; <label for="heslo"> Heslo:&nbsp; </label>
-							<input type="password" class="inputUser" id="heslo" name="heslo">&nbsp;&nbsp;
-							<button name="prihlasit"> Přihlásit</button>
-							<a href="registrace.php" id="registrace"> Registrace </a>						
+							<div class="jmenoHeslo">
+								<label for="jmeno">Jméno:&nbsp; </label>
+								<input type="text" class="inputUser" id="jmeno" name="jmeno">
+								&nbsp;&nbsp; <label for="heslo"> Heslo:&nbsp; </label>
+								<input type="password" class="inputUser" id="heslo" name="heslo">&nbsp;&nbsp;
+							</div>
+							<div class="prihlasitRegistrace">
+								<button name="prihlasit"> Přihlásit</button>
+								<a href="registrace.php" id="registrace"> Registrace </a>
+							</div>						
 						</form>
 						<?php
 					}

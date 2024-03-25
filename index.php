@@ -19,17 +19,8 @@ if (array_key_exists("prihlasit", $_POST)) {
 	$_GET["datum"] = null;
 	$jmeno = $_POST["jmeno"];
 	$heslo = $_POST["heslo"];
-	//var_dump($jmeno);
-	//var_dump($heslo);
 	$_SESSION["prihlasenyUzivatel"] = checkUser($jmeno, $heslo);
-	var_dump($_SESSION["prihlasenyUzivatel"]);
-	//if ($jmeno == "admin" && $heslo == "1234") {
-		//uživatel zadal platné přihlašovací údaje údaje
-		//$_SESSION["prihlasenyUzivatel"] = $jmeno;
-	//} else {
-		//špatné přihlašovací údaje
-	//	$chyba = "Nesprávné přihlašovací údaje";
-	//}
+	//var_dump($_SESSION["prihlasenyUzivatel"]);
 	if ($_SESSION["prihlasenyUzivatel"]==null) {
 		unset($_SESSION["prihlasenyUzivatel"]);
 		$errorLogin = "Nesprávné přihlašovací údaje";
@@ -56,7 +47,7 @@ if (array_key_exists("zobraz_historie", $_GET)) {
 
 }
 if (array_key_exists("zobraz", $_GET)) {
-	var_dump($_GET);
+	//var_dump($_GET);
 	if (empty($_GET["celkovyPocetBodu"]) || empty($_GET["procentniHranice"])) {
 		$errorInput = "Není zadán celkový počet bodů nebo procentní hranice";
 	} else {
@@ -161,7 +152,7 @@ function zaokrouhlitDoluNaPul($cislo)
 					}
 					//sekce pro přihlášené užiovatele
 					else {
-						echo "<div class='odhlasit'> Uživatel: {$_SESSION["prihlasenyUzivatel"]} &nbsp;&nbsp;";
+						echo "<div class='odhlasit'> Uživatel: {$_SESSION["prihlasenyUzivatel"]} &nbsp;&nbsp;</div>";
 						echo "<form method='get'>  <button name='odhlasit'> Odhlasit </button>  </form> </div>";
 					}
 					?>
@@ -177,7 +168,7 @@ function zaokrouhlitDoluNaPul($cislo)
 					?>
 					<div class="udajeDoDatabaze">
 						<label for="nazevTestu">Název testu:</label>
-						<input type="text" name="nazevTestu" id="nazevTestu" value="<?php echo $nazevTestu; ?>">
+						<input type="text" name="nazevTestu" id="nazevTestu"  value="<?php echo $nazevTestu; ?>" >
 						<label for="trida">Třída:</label>
 						<input type="text" name="trida" id="trida" value="<?php echo $trida; ?>">
 						<label for="datum">Datum:</label>
@@ -244,13 +235,13 @@ function zaokrouhlitDoluNaPul($cislo)
 				//var_dump($vysledek);
 				if ($vysledek != null) {   //pokud přihlášený uživatel má nějaká data v databázi, tak je zobraz
 					echo "<table>";
-					echo "<tr><th>název testu</th><th>třída</th><th>datum</th><th>celkový počet bodů</th><th>procentní hranice</th><th>smaž</th><th>zobraz</th></tr>";
+					echo "<tr><th>název testu</th><th>třída</th><th class=hide-on-mobile>datum</th><th class=hide-on-mobile>počet bodů</th><th class=hide-on-mobile>procentní hranice</th><th>smaž</th><th>zobraz</th></tr>";
 					foreach ($vysledek as $test => $udaj) {
 						echo "<tr> <td>{$udaj['nazev_testu']}</td> 
 									<td>{$udaj['trida']}</td>
-									<td>{$udaj['datum']}</td>
-									<td>{$udaj['celkovy_pocet_bodu']}</td>
-									<td>{$udaj['procentni_hranice']}</td>
+									<td class=hide-on-mobile>{$udaj['datum']}</td>
+									<td class=hide-on-mobile>{$udaj['celkovy_pocet_bodu']}</td>
+									<td class=hide-on-mobile>{$udaj['procentni_hranice']}</td>
 									<td class='odkaz'><a href='?id={$udaj['id']}&smazat'><i class='fa-solid fa-trash-can'></i></a></td>
 									<td class='odkaz'><a href='?id={$udaj['id']}&zobraz_historie'><i class='fa-regular fa-eye'></a></i></td></tr>";
 					}

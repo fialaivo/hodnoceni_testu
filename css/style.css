@@ -55,8 +55,8 @@ input{
 .prihlaseniContainer{
 	display: flex;
 	align-items: center;
-	justify-content: flex-end;
-	width: 1000px;
+	justify-content: center;
+	width: 100vw;
 }
 
 .loginError{
@@ -229,22 +229,41 @@ a:hover{
 	align-items: center;
 }
 
+#nazevTestu{
+	width:30vW;
+}
+.udajeDoDatabaze{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.odhlasit{
+	display: flex;
+	flex-direction: row;
+}
+.formularPrihlaseni{
+	display: flex;
+	flex-direction: row;
+}
+
 @media(max-width:700px)
 {
 	.nadpis{
 		flex-direction: column;
 	}
 	.nadpis h1{
-		font-size: 8vw;
+		font-size: 12vw;
 	}
 	.nadpis img{
-		width: 25vw;
-		height: 25vw;
+		width: 35vw;
+		height: 35vw;
 	}
 	.container{
 		width: 80vw;
 	}
 	.prihlaseniContainer{
+		justify-content: center;
 		width: 80vw;
 	}
 	.prihlaseni{
@@ -254,6 +273,19 @@ a:hover{
 	.prihlasovaciFormular{
 		flex-direction: column;
 	}
+	.udajeDoDatabaze{
+		display: flex;
+		flex-direction: column;
+	}
+	#celkovyPocetBodu, #procentniHranice{
+		width:20vw;
+	}
+	#nazevTestu{
+		width:70vW;
+	}
+	.hide-on-mobile {
+		display: none;
+	  }
 }
 @media(max-width:480px){
 	.prihlaseni{
@@ -271,5 +303,14 @@ a:hover{
 	}
 	.inputUser{
 		margin: 0px;
+	}
+
+	.formularPrihlaseni{
+		display: flex;
+		flex-direction: column;
+		padding: 15px;
+	}
+	.odhlasit{
+		padding: 15px;
 	}
 }
